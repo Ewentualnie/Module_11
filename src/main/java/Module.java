@@ -53,11 +53,11 @@ public class Module {
 
     // Task 4
     public Stream<Long> congruentGenerator(long a, int c, long m) {
-        return Stream.iterate(0, n -> n+1).limit(10000000).map(x -> (a * x + c) % m);
+        return Stream.iterate(0, n -> n + 1).limit(10000000).map(x -> (a * x + c) % m);
     }
 
     // Task 5
-//    public static <T> Stream<T> zip(Stream<T> first, Stream<T> second) {
-//
-//    }
+    public static <T> Stream<T> zip(Stream<T> first, Stream<T> second) {
+        return Stream.concat(first, second).sorted();
+    }
 }
