@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -6,15 +7,21 @@ public class Module {
 
     // Task 1
     public String getOddNames(String... names) {
-        StringBuilder oddNames = new StringBuilder();
-        IntStream.range(0, names.length)
-                .filter(x -> x % 2 != 0)
-                .forEach(x -> oddNames
-                        .append(x)
-                        .append(". ")
-                        .append(names[x])
-                        .append(", "));
-        return oddNames.substring(0, oddNames.length() - 2);
+        return Stream.iterate(1, n -> n + 2)
+                .limit(names.length / 2)
+                .map(x -> x + ". " + names[x])
+                .reduce((acc,val)->acc+val).map(str->str.substring(0,str.length()-1))
+                .orElse("no elements");
+
+//        StringBuilder oddNames = new StringBuilder();
+//        IntStream.range(0, names.length)
+//                .filter(x -> x % 2 != 0)
+//                .forEach(x -> oddNames
+//                        .append(x)
+//                        .append(". ")
+//                        .append(names[x])
+//                        .append(", "));
+//        return oddNames.substring(0, oddNames.length() - 2);
     }
 
     // Task 2
