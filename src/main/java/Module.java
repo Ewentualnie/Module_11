@@ -12,16 +12,6 @@ public class Module {
                 .map(x -> x + ". " + names[x])
                 .reduce((acc, val) -> acc + ", " + val)
                 .orElse("no elements");
-
-//        StringBuilder oddNames = new StringBuilder();
-//        IntStream.range(0, names.length)
-//                .filter(x -> x % 2 != 0)
-//                .forEach(x -> oddNames
-//                        .append(x)
-//                        .append(". ")
-//                        .append(names[x])
-//                        .append(", "));
-//        return oddNames.substring(0, oddNames.length() - 2);
     }
 
     // Task 2
@@ -43,24 +33,13 @@ public class Module {
                 .toList()
                 .toString()
                 .replaceAll("[]\\[]", "");
-
-
-//        StringBuilder r = new StringBuilder();
-//
-//        Arrays.stream(ints)
-//                .forEach(x -> Arrays.stream(x.split(","))
-//                        .forEach(y -> r.append(y.strip()).append(",")));
-//        return Arrays.stream(r.toString().split(","))
-//                .map(Integer::parseInt)
-//                .sorted()
-//                .toList()
-//                .toString()
-//                .replaceAll("[]\\[]", "");
     }
 
     // Task 4
     public Stream<Long> congruentGenerator(long a, int c, long m) {
-        return Stream.iterate(0, n -> n + 1).limit(10000000).map(x -> (a * x + c) % m);
+        return Stream.iterate(0, n -> n + 1)
+                .limit(10000000)
+                .map(x -> (a * x + c) % m);
     }
 
     // Task 5
