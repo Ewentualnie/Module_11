@@ -10,7 +10,7 @@ public class Module {
         return Stream.iterate(1, n -> n + 2)
                 .limit(names.length / 2)
                 .map(x -> x + ". " + names[x])
-                .reduce((acc,val)->acc+val).map(str->str.substring(0,str.length()-1))
+                .reduce((acc, val) -> acc + ", " + val)
                 .orElse("no elements");
 
 //        StringBuilder oddNames = new StringBuilder();
