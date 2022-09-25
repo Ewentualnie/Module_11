@@ -30,9 +30,8 @@ public class Module {
                         .split(","))
                 .map(x -> Integer.parseInt(x.strip()))
                 .sorted()
-                .toList()
-                .toString()
-                .replaceAll("[]\\[]", "");
+                .map(x -> x + "")
+                .reduce((acc, val) -> acc + ", " + val).get();
     }
 
     // Task 4
