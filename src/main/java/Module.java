@@ -31,7 +31,8 @@ public class Module {
                 .map(x -> Integer.parseInt(x.strip()))
                 .sorted()
                 .map(x -> x + "")
-                .reduce((acc, val) -> acc + ", " + val).get();
+                .reduce((acc, val) -> acc + ", " + val)
+                .get();
     }
 
     // Task 4
